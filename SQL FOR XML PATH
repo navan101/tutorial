@@ -1,0 +1,8 @@
+
+ SELECT WelcomeCode,  abc = STUFF(
+             (SELECT ',' + JobWCode 
+              FROM TASOB_ConfigWelcome t1
+              WHERE t1.WelcomeCode = t2.WelcomeCode
+              FOR XML PATH (''))
+             , 1, 1, '') from TASOB_ConfigWelcome t2
+group by WelcomeCode;
