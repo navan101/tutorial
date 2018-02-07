@@ -1,0 +1,13 @@
+SELECT *
+FROM hrm_view_Manage_Tasks
+ORDER BY
+ LEFT(NumberNo,PATINDEX('%[0-9]%',NumberNo)-1), -- alphabetical sort
+         CONVERT(INT,SUBSTRING(NumberNo,PATINDEX('%[0-9]%',NumberNo),LEN(NumberNo))) -- numerical sort
+
+
+SELECT NumberNo
+FROM hrm_view_Manage_Tasks
+ORDER BY
+LEFT(NumberNo,CASE PATINDEX('%[0-9]%',NumberNo) WHEN 0 THEN LEN(NumberNo) ELSE PATINDEX('%[0-9]%',NumberNo)-1 END),
+RIGHT(REPLICATE('0',50) + SUBSTRING(NumberNo, CASE PATINDEX('%[0-9]%',NumberNo) 
+WHEN 0 THEN LEN(NumberNo) ELSE PATINDEX('%[0-9]%',NumberNo) END,LEN(NumberNo)),50)
