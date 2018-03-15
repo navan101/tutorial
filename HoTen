@@ -1,0 +1,6 @@
+DECLARE @test     VARCHAR(100)
+
+SET @test = 'some file name a'
+
+SELECT
+     LEFT(@test, LEN(@test) - CHARINDEX(' ', REVERSE(@test))), RIGHT(@test, CHARINDEX(' ', REVERSE(@test)))
