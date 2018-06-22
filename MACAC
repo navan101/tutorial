@@ -1,0 +1,22 @@
+1.Open your terminal
+
+2.You could firstly just check your current $PATH, type
+
+echo $PATH
+to terminal
+
+3.If the $PATH that terminal gave back is the path you want, then you are good; if not, type
+
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin
+, then type
+
+touch ~/.bash_profile
+, and then type
+
+open ~/.bash_profile
+, you will then find a EditText open up, now type the path you want in that EditText; For instance, type
+
+PATH=/usr/bin:/bin:/usr/sbin:/sbin
+(which is the default $PATH for mac, considering you want to reset the $PATH so you should probably type this), save it, and then close EditText, then close Terminal.
+
+4.Now you have already changed your $PATH or reset to the mac's default $PATH!
