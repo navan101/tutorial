@@ -1,0 +1,21 @@
+
+//kiểm tra trình duyệt có hỗ trợ LocalStorage
+function storageAvailable(type) {
+    try {
+        var storage = window[type],
+            x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return false;
+    }
+}
+
+if (storageAvailable('localStorage')) {
+	// Tuyệt vời, trình duyệt này hỗ trợ LocalStorage
+}
+else {
+	// 🙁 trình duyệt không hỗ trợ LocalStorage, tìm cách khác thôi.
+}
